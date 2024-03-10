@@ -1,11 +1,28 @@
 const choices = ['rock', 'paper', 'scissors']
 
-function getComputerChoice(){
+function getComputerChoice(choices){
+    /**
+     * Returns a random choice from the choices array
+     * @param {array} choices - an array of choices
+     * @returns {string} - a random choice from the choices array
+     * @example
+     * getComputerChoice(['rock', 'paper', 'scissors']);
+     * //=> 'rock'
+     */
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
 
 function playSingleRound(playerSelection, computerSelection){
+    /**
+     * Plays a single round of rock, paper, scissors
+     * @param {string} playerSelection - the player's choice
+     * @param {string} computerSelection - the computer's choice
+     * @returns {string} - the result of the round
+     * @example
+     * playSingleRound('rock', 'scissors');
+     * //=> 'You Win! rock beats scissors'
+     */
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
         return "It's a tie!";
@@ -21,6 +38,11 @@ function playSingleRound(playerSelection, computerSelection){
 }
 
 function playGame(){
+    /**
+     * Plays a 5-round game of rock, paper, scissors
+     * @example
+     * playGame();
+     */
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
