@@ -49,6 +49,19 @@ function playGame(){
     const resultText = document.querySelector('.result-text');
     const playerScoreText = document.querySelector('.player-score');
     const computerScoreText = document.querySelector('.computer-score');
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Try Again?';
+    restartButton.addEventListener('click', function() {
+        playerScore = 0;
+        computerScore = 0;
+        resultText.textContent = '';
+        playerScoreText.textContent = 'Player Score: 0';
+        computerScoreText.textContent = 'Computer Score: 0';
+        choicesButtons.forEach(button => {
+            button.disabled = false;
+        });
+        restartButton.remove();
+    });
 
     choicesButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -66,10 +79,10 @@ function playGame(){
 
             if (playerScore === 5 || computerScore === 5) {
                 endGame(playerScore, computerScore);
+                document.body.appendChild(restartButton);
             }
         });
     });
-
     function endGame(playerScore, computerScore) {
         choicesButtons.forEach(button => {
             button.disabled = true;
