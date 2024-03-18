@@ -62,7 +62,6 @@ function playGame(){
         });
         restartButton.remove();
     });
-
     choicesButtons.forEach(button => {
         button.addEventListener('click', function() {
             const playerSelection = button.dataset.choice;
